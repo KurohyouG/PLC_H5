@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+  struct Ename{
+    char fname[20];
+    char lname[30];
+  };
+  struct Jname{
+    char fname[20]; 
+    char lname[30];
+  };
+int main(void) {
+  struct Ename E1;
+  struct Jname J1;
+  strcpy(E1.fname, "John");
+  strcpy(E1.lname, "Doe");
+  J1 = E1; //Error due to name equivalence being different but structure equivalence is the same
+  return 0;
+}
+
