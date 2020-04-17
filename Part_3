@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <time.h>
+
+
+float my_func_sub(){
+  clock_t start, end;
+  int my_array[2000][1000] = {0};
+    start = clock();
+    for(int i=0; i<2000 ; i++){
+        for(int j=0; j<1000 ; j++){
+            my_array[i][j];
+        }
+    }
+  end = clock();
+  return ((end-start)/(double)CLOCKS_PER_SEC );
+  
+}
+
+float my_func_pnt()
+{
+    clock_t start, end;
+    int my_array[2000][1000];
+    start = clock();
+    for (int i = 0; i < 2000; i++)
+    {
+        for (int j = 0; j < 1000; j++)
+        {
+            *(my_array+i+j);
+        }
+    }
+    end = clock();
+    return ((end-start)/(double)CLOCKS_PER_SEC);
+}
+
+int main(void) {
+  float pnt_sum, sub_sum;
+  for (int i = 0; i < 1000; i++){
+
+  sub_sum += my_func_sub();
+
+  pnt_sum += my_func_pnt();
+  }
+  printf("Number of seconds for subscripting after 1000 loops: %f\n", sub_sum);
+  printf("Number of seconds for pointer after 1000 loops: %f\n", pnt_sum);
+  return 0;
+}
+//Time Effenciey --> Pointer is more efficient than sub-scripting. Sub-scripting is more reliable than using pointer because pointers have the problem with dangling pointers and memory leakage.
