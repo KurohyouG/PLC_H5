@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+enum colors{white, red, orange, yellow, green, blue, indigo, violet, black};
+
+int main(void) {
+
+  // Basic Mathimatical operations
+  printf("%d\n", (yellow - indigo)); // Value will be -3
+  printf("%d\n", (black * yellow)); // Value will be 24
+  printf("%d\n", (green / orange)); // Value will be 2
+
+  // Some bitwise operations
+  printf("%d\n", (red & yellow)); // Value will be 1
+  printf("%d\n", (orange ^ green)); // Value will be 6
+  printf("%d\n", (black << 1)); // Value will be 16
+
+  //Creating myColor variable and manipulating it.
+  enum colors myColor = red;
+  printf("%d\n", (myColor)); // Value will be 1
+  printf("%d\n", (++myColor)); // Value will be 2
+  printf("%d\n", (myColor = yellow + red)); // Value will be 4
+  printf("%d\n", (myColor += green)); // Value will be 8
+
+  return 0;
+}
