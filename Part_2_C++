@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+enum colors{white, red, orange, yellow, green, blue, indigo, violet, black};
+
+int main() {
+      // Basic Mathimatical operations
+    cout << (yellow - indigo) << endl;   // Value will be -3.
+    cout << (black * yellow) << endl;  // Value will be 24.
+    cout << (green / orange) << endl;  // Value will be 2.
+
+    // Some bitwise operations
+    cout << (red & yellow) << endl;   // Value will be 1.
+    cout << (orange ^ green) << endl;  // Value will be 6.
+    cout << (black << 1) << endl;   // Value will be 16.
+
+
+    colors myColor = red;
+    cout << (myColor) << endl; // Value will be 1.
+    cout << (++myColor) << endl; // Illegal.
+    cout << (myColor = yellow + red) << endl; // Illegal.
+    cout << (myColor += green) << endl; // Illegal.
