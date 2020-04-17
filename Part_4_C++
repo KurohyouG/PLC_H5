@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+void func1(){
+
+char *c = new char(10); //memory leakage
+
+return;
+}
+void change(int *p){
+  *p = 10;
+}
+
+int main() {
+  func1();
+
+  // arrayPtr1 and arrayPtr2 are dangling
+  int*arrayPtr1;
+  int*arrayPtr2 = new int[100];
+  arrayPtr1 = arrayPtr2;
+  delete[] arrayPtr2; 
+
+  int num = 5;
+  int *p = &num;
+  cout << *p << endl;
+  change(p);
+  cout << *p << endl;
+  cout << num << endl;
+
+  int *array1;
+  int array2[10];
+
+  array1 = array2;
+
+  *(array1 + 4) = 7;
+  array2[0] = 3;
+  array1[1] = 456;
+
+
+
+  cout << array1 << endl;
+  cout << array2 << endl;
+
+  cout << *array1 << endl;
+  cout << array2[0] << endl;
+
+  cout << array1[4] << endl;
+  cout << array2[4] << endl;
+
+  cout << *(++array1) << endl;
+  cout << array2[1] << endl;
+
+}
